@@ -1,0 +1,31 @@
+# if you want to rename the project:
+# Rename the oldprojectname directory to newprojectname
+# manage.py: Change os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'oldprojectname.settings')
+# newprojectname/wsgi.py: Change os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'oldprojectname.settings')
+# newprojectname/settings.py: Change ROOT_URLCONF = 'oldprojectname.urls' and change WSGI_APPLICATION = 'oldprojectname.wsgi.application'
+# newprojectname/urls.py: Change oldprojectname in a line I had added
+# change SETTINGS_ENV below
+# --------------------------
+# if you want to use psql and env
+# move below to .env
+# sudo service postgresql start
+# sudo -u postgresql psql
+# CREATE DATABASE tmpl;
+# CREATE USER myprojectuser WITH PASSWORD 'password';
+# ALTER ROLE myprojectuser SET client_encoding TO 'utf8';
+# ALTER ROLE myprojectuser SET default_transaction_isolation TO 'read committed';
+# ALTER ROLE myprojectuser SET timezone TO 'UTC';
+# GRANT ALL PRIVILEGES ON DATABASE myproject TO myprojectuser;
+
+
+DEBUG=True
+SECRET_KEY=
+DATABASE_URL=
+DB_ENGINE=
+DB_NAME=
+DB_USER=
+DB_PASSWORD=
+DB_HOST=127.0.0.1
+DB_PORT=5432
+REDIS_URL=rediscache://127.0.0.1:6379/1?client_class=django_redis.client.DefaultClient&password=ungithubbed-secret
+SETTINGS_ENV=template.settings.dev
